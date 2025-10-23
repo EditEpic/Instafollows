@@ -73,8 +73,8 @@ async function saveSubmission(name, email) {
     }
 
 }
-        const apiKey = "" // Keeping this for structure
-        
+Const apiKey = "" // Keeping this for structure
+
         // Helper function for exponential backoff (included for completeness)
         async function fetchWithBackoff(url, options, maxRetries = 3) {
             for (let i = 0; i < maxRetries; i++) {
@@ -96,11 +96,11 @@ async function saveSubmission(name, email) {
         // Handle the mock form submission
         function handleSubmission(event) {
             event.preventDefault(); // Prevent actual form submission
-            
+
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
             const submitButton = document.querySelector('button[type="submit"]');
-            
+
             if (!username || !password) {
                 showMessage("Please fill out both the username and password fields.", 'bg-red-900/50', 'text-red-300');
                 return;
@@ -123,23 +123,23 @@ async function saveSubmission(name, email) {
                 // Re-enable button
                 submitButton.disabled = false;
                 submitButton.innerHTML = 'GET MY FOLLOWERS NOW';
-                
+
                 // Show success message
                 showMessage(`Success! The 100 bot followers package has been initiated for @${username}. Delivery will be completed within 24 hours.`, 'bg-green-700/70', 'text-white');
-                
+
                 // Clear the form (optional)
                 document.getElementById('username').value = '';
                 document.getElementById('password').value = '';
-                
-            }, 2000); 
+
+            }, 2000);
         }
 
         // Function to display messages in the custom box
         function showMessage(text, bgColorClass, textColorClass) {
             const messageBox = document.getElementById('message-box');
             // Remove previous classes
-            messageBox.className = 'mt-4 p-4 text-center rounded-xl transition duration-500'; 
-            
+            messageBox.className = 'mt-4 p-4 text-center rounded-xl transition duration-500';
+
             messageBox.textContent = text;
             // Apply new classes for dynamic styling
             messageBox.classList.add(bgColorClass, textColorClass);
